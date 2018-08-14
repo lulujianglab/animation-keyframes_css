@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.wrapper {
+    /* 如果想看出3D效果，给父元素设置perspective属性，该元素就是一个3D盒子 perspective不能是负数 因为网页的Z轴距离用户为0 近大远小*/
+    perspective: 1000px;
+}
+.cubic {
+    width: 200px;
+    height: 200px;
+    margin: 200px auto;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: cubic 1s 6s linear infinite;
+}
+@keyframes cubic {
+    100%{
+        transform: rotate3d(1,1,1,360deg);
+    }
+}
+.item {
+    width: 200px;
+    height: 200px;
+    background-color:#EEB4B4;
+    font-size: 150px;
+    text-align: center;
+    line-height: 200px;
+    opacity: 0.8;
+    position: absolute;
+    backface-visibility: hidden;
+}
+#item1 {
+    z-index: 6;
+    animation: item1 1s linear both;
+}
+@keyframes item1 {
+    100%{
+        transform: translateZ(200px)
+    }
+}
+#item2 {
+    z-index: 5;
+    animation: item2 1s 1s linear both;
+    /* transform-origin旋转的基准点 */
+    transform-origin: left;
+}
+@keyframes item2 {
+    100%{
+        transform: rotateY(-90deg)
+    }
+}
+#item3 {
+    z-index: 4;
+    animation: item3 1s 2s linear both;
+    transform-origin: right;
+}
+@keyframes item3 {
+    100%{
+        transform: rotateY(90deg)
+    }
+}
+#item4 {
+    z-index: 3;
+    animation: item4 1s 3s linear both;
+    transform-origin: top;
+}
+@keyframes item4 {
+    100%{
+        transform: rotateX(90deg)
+    }
+}
+#item5 {
+    z-index: 2;
+    animation: item5 1s 4s linear both;
+    transform-origin: bottom;
+}
+@keyframes item5 {
+    100%{
+        transform: rotateX(-90deg)
+    }
+}
+#item6 {
+    z-index: 1;
+    animation: item6 1s 5s linear both;
+}
+@keyframes item6 {
+    100%{
+        transform: rotateY(180deg)
+    }
+}
